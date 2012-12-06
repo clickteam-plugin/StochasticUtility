@@ -1,0 +1,466 @@
+"About":
+{
+	"Name": "Stochastic Utility 1.2"
+	"Author": "Nicklas Nygren"
+	"Copyright": "Copyright (C) 2011 Nicklas Nygren"
+	"Comment": "This extension does some various useful stuff"
+	"URL": "http://nifflas.ni2.se"
+	"Help": "Help/NoHelp.chm"
+	"Identifier": "Nif2"
+}
+
+"ActionMenu":
+[
+	["Random Numbers"
+		[0 "Set random seed"]
+		[1 "Set random seed to timer"]
+	]
+]
+
+"ConditionMenu":
+[
+	[0 "Compare two numbers"]
+]
+
+"ExpressionMenu":
+[
+	["Return Float"
+		[1 "Random number"]
+		[7 "Wave"]
+		[21 "Compare two numbers"]
+		[24 "Approach"]
+		["Range"
+			[2 "Limit"]
+			[4 "Nearest"]
+			[5 "Normalise"]
+			[6 "Modify range"]
+			[10 "Interpolate"]
+			[11 "Mirror"]
+		]
+		["Modulo"
+			[8 "Euclidean modulo"]
+			[9 "Über modulo"]
+		]
+	]
+	
+	["Return Integer"
+		[0 "Random number"]
+		[16 "Wave"]
+		[22 "Compare two numbers"]
+		[25 "Approach"]		
+		["Range"
+			[12 "Limit"]
+			[13 "Nearest"]
+			[14 "Normalise"]
+			[15 "Modify range"]
+			[19 "Interpolate"]
+			[20 "Mirror"]
+		]
+		["Modulo"
+			[17 "Euclidean modulo"]
+			[18 "Über modulo"]
+		]
+	]
+
+	["Return String"
+		[3 "Substring"]
+		[23 "Compare two numbers"]
+	]
+]
+
+	
+"Actions":
+[
+    
+    // 0
+    
+    { "Title": "Set random seed to %0"
+    
+      "Parameters": 
+      [
+          ["Integer" "Seed"]
+      ]  
+    }
+    
+    // 1
+    
+    { "Title": "Set random seed to timer"
+    }
+    
+]
+
+"Conditions":
+[
+    // 0
+    
+    {   "Title": "%o : Compare %0 and %1 with comparison type %2"
+        "Triggered": false
+        
+        "Parameters": 
+        [          
+          ["Float" "First number"]
+          ["Float" "Second number"]
+          ["Integer" "Comparison type (0 = Equal 1 = Different 2 = Higher 3 = Lower 4 = Equal or higher 5 = Equal or lower)"] 
+        ] 
+    }
+    
+]
+
+"Expressions":
+[
+    // 0
+    
+    {   "Title": "IntGenerateRandom("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 1
+    
+    {   "Title": "GenerateRandom("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 2
+    
+    {   "Title": "Limit("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 3
+    
+    {   "Title": "Substring$("
+        "Returns": "Text"
+        
+        "Parameters": 
+        [
+            ["Text"    "String"]
+            ["Integer" "Start"]
+            ["Integer" "Length"]
+        ] 
+    }
+    
+    // 4
+    
+    {   "Title": "Nearest("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 5
+    
+    {   "Title": "Normalise("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+            ["Integer" "Limit"]
+        ] 
+    }
+    
+    // 6
+    
+    {   "Title": "ModifyRange("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+            ["Float" "New minimum"]
+            ["Float" "New maximum"]
+            ["Integer" "Limit"]
+        ] 
+    }
+    
+    // 7
+    
+    {   "Title": "Wave("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Integer" "Waveform"]
+            ["Float" "Value"]
+			["Float" "Cycle start"]
+            ["Float" "Cycle end"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+	
+	    // 8
+    
+    {   "Title": "EuclideanMod("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Dividend"]
+		    ["Float" "Divisor"]
+        ] 
+    }
+	
+	    // 9
+	
+	{   "Title": "UberMod("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Dividend"]
+		    ["Float" "Lower wrap value"]
+			["Float" "Upper wrap value"]
+        ] 
+    }
+	
+		    // 10
+	
+	{   "Title": "Interpolate("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "From"]
+			["Float" "To"]
+			["Integer" "Limit"]
+        ] 
+    }
+	
+			    // 11
+	
+	{   "Title": "Mirror("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "From"]
+			["Float" "To"]
+        ] 
+    }
+	
+	    // 12
+    
+    {   "Title": "IntLimit("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 13
+    
+    {   "Title": "IntNearest("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+    
+    // 14
+    
+    {   "Title": "IntNormalise("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+            ["Integer" "Limit"]
+        ] 
+    }
+    
+    // 15
+    
+    {   "Title": "IntModifyRange("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+            ["Float" "New minimum"]
+            ["Float" "New maximum"]
+            ["Integer" "Limit"]
+        ] 
+    }
+    
+    // 16
+    
+    {   "Title": "IntWave("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Integer" "Waveform"]
+            ["Float" "Value"]
+			["Float" "Cycle start"]
+            ["Float" "Cycle end"]
+            ["Float" "Minimum"]
+            ["Float" "Maximum"]
+        ] 
+    }
+	
+	// 17
+    
+    {   "Title": "IntEuclideanMod("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Dividend"]
+		    ["Float" "Divisor"]
+        ] 
+    }
+	
+	// 18
+	
+	{   "Title": "IntUberMod("
+        "Returns": "Integer"
+        
+        "Parameters":
+        [
+            ["Float" "Dividend"]
+		    ["Float" "Lower wrap value"]
+			["Float" "Upper wrap value"]
+        ] 
+    }
+	
+	// 19
+	
+	{   "Title": "IntInterpolate("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "From"]
+			["Float" "To"]
+			["Integer" "Limit"]
+        ] 
+    }
+	
+	// 20
+	
+	{   "Title": "IntMirror("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "From"]
+			["Float" "To"]
+        ] 
+    }
+	
+	// 21
+	
+	{   "Title": "Compare("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "First value"]
+		    ["Float" "Second value"]
+			["Integer" "Comparison type"]
+			["Float" "Return if True"]
+			["Float" "Return if False"]
+        ] 
+    }
+	
+	// 22
+	
+	{   "Title": "IntCompare("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "First value"]
+		    ["Float" "Second value"]
+			["Integer" "Comparison type"]
+			["Float" "Return if true"]
+			["Float" "Return if false"]
+        ] 
+    }
+	
+	// 23
+	
+	{   "Title": "Compare$("
+        "Returns": "Text"
+        
+        "Parameters": 
+        [
+            ["Float" "First value"]
+		    ["Float" "Second value"]
+			["Integer" "Comparison type"]
+			["Text" "Return if true"]
+			["Text" "Return if false"]
+        ] 
+    }
+	
+	// 24
+	
+	{   "Title": "Approach("
+        "Returns": "Float"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "Amount"]
+			["Float" "Target"]
+        ] 
+    }
+	
+	// 25
+	
+	{   "Title": "IntApproach("
+        "Returns": "Integer"
+        
+        "Parameters": 
+        [
+            ["Float" "Value"]
+		    ["Float" "Amount"]
+			["Float" "Target"]
+        ] 
+    }
+]
